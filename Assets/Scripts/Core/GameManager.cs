@@ -43,15 +43,22 @@ public class GameManager : MonoBehaviour
         {
             case GameState.MainMenu:
                 Time.timeScale = 1f;
+                Debug.Log("Main Menu");
                 break;
             case GameState.Playing:
                 Time.timeScale = 1f;
+                Debug.Log("Playing");
+                Object.FindFirstObjectByType<UIManager>().ShowResumed();
                 break;
             case GameState.Paused:
                 Time.timeScale = 0f;
+                Debug.Log("Paused");
+                Object.FindFirstObjectByType<UIManager>().ShowPaused();
                 break;
             case GameState.GameOver:
                 Time.timeScale = 0f;
+                Debug.Log("Game Over");
+                Object.FindFirstObjectByType<UIManager>().ShowGameOver();
                 break;
         }
     }
